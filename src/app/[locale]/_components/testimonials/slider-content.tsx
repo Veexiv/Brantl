@@ -7,7 +7,7 @@ export function SliderImage({ src, alt, width }: { src: string; alt: string; wid
       className="relative flex aspect-video h-28 shrink-0 items-center justify-center"
       style={{ width: `${width}px` }}
     >
-      <Image src={src} alt={alt} fill unoptimized draggable="false" />
+      <Image src={src} alt={alt} fill draggable="false" />
     </div>
   );
 }
