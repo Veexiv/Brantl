@@ -11,14 +11,40 @@ import { SliderContent } from "./slider-content";
 import { NavigationButton } from "./navigation-button";
 import { PaginationDots } from "./pagination-dots";
 
+import LogoWecubex from "~/public/logos/wecubex-logo.svg";
+import LogoSolodoor from "~/public/logos/solodoor-logo.svg";
+import LogoFischerGroup from "~/public/logos/fischer-group-logo.svg";
+import LogoSto from "~/public/logos/sto-logo.svg";
+import LogoKaeserKompressoren from "~/public/logos/kaeser-kompressoren-logo.svg";
+import LogoKonplan from "~/public/logos/konplan-logo.svg";
+import LogoEnika from "~/public/logos/enika-logo.svg";
+import LogoFibranEnergyShield from "~/public/logos/fibran-energy-shield-logo.svg";
+import LogoSbsCargo from "~/public/logos/sbs-cargo-logo.svg";
+import LogoPrevedig from "~/public/logos/prevedig-logo.svg";
+import LogoGrupoCopo from "~/public/logos/grupo-copo-logo.svg";
+import LogoScania from "~/public/logos/scania-logo.svg";
+
+export const PARTNER_LOGOS = [
+  LogoWecubex,
+  LogoSolodoor,
+  LogoFischerGroup,
+  LogoSto,
+  LogoKaeserKompressoren,
+  LogoKonplan,
+  LogoEnika,
+  LogoFibranEnergyShield,
+  LogoSbsCargo,
+  LogoPrevedig,
+  LogoGrupoCopo,
+  LogoScania,
+];
+
 export function DynamicSlider({
-  imageUrls,
   itemBaseWidth,
   itemTabletWidth,
   itemDesktopWidth,
   className,
 }: {
-  imageUrls: string[];
   itemBaseWidth: number;
   itemTabletWidth: number;
   itemDesktopWidth: number;
@@ -36,7 +62,7 @@ export function DynamicSlider({
   const paddingMobile = 36;
   const paddingTabletDesktop = 80;
   const itemWidth = isDesktop ? itemDesktopWidth : isTablet ? itemTabletWidth : itemBaseWidth;
-  const rowIndexes = Array.from({ length: imageUrls.length }, (_, index) => index);
+  const rowIndexes = Array.from({ length: PARTNER_LOGOS.length }, (_, index) => index);
   const dualRowIndexes = rowIndexes.filter((index) => index % 2 === 0);
   const deviceIndexes = isDesktop ? rowIndexes : dualRowIndexes;
 
@@ -96,7 +122,6 @@ export function DynamicSlider({
             isDesktop={isDesktop}
             itemsPerView={itemsPerView}
             itemWidth={itemWidth}
-            imageUrls={imageUrls}
           />
         </Carousel>
 

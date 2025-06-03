@@ -1,13 +1,19 @@
-import Image from "next/image";
+import * as React from "react";
 import { CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { PARTNER_LOGOS } from "@/app/[locale]/_components/testimonials/dynamic-slider";
 
-export function SliderImage({ src, alt, width }: { src: string; alt: string; width: number }) {
+export function SliderImage({
+  logo: Logo,
+  alt,
+  width,
+}: {
+  logo: React.FC<React.SVGProps<SVGSVGElement>>;
+  alt: string;
+  width: number;
+}) {
   return (
-    <div
-      className="relative flex aspect-video h-28 shrink-0 items-center justify-center"
-      style={{ width: `${width}px` }}
-    >
-      <Image src={src} alt={alt} fill draggable="false" />
+    <div className="flex h-28 shrink-0 items-center" style={{ width: `${width}px` }}>
+      <Logo aria-label={alt} className="object-fill" />
     </div>
   );
 }
@@ -18,22 +24,20 @@ export function SliderContent({
   isDesktop,
   itemsPerView,
   itemWidth,
-  imageUrls,
 }: {
   rowIndexes: number[];
   dualRowIndexes: number[];
   isDesktop: boolean;
   itemsPerView: number;
   itemWidth: number;
-  imageUrls: string[];
 }) {
   return (
     <CarouselContent className="flex min-h-[300px] items-center">
       {(!isDesktop ? dualRowIndexes : rowIndexes).map((idx) => (
         <CarouselItem key={idx} className="mx-auto flex justify-center" style={{ flexBasis: `${100 / itemsPerView}%` }}>
           <div className="flex flex-col">
-            <SliderImage src={imageUrls[idx]} alt={`Logo ${idx + 1}`} width={itemWidth} />
-            {!isDesktop && <SliderImage src={imageUrls[idx + 1]} alt={`Logo ${idx + 2}`} width={itemWidth} />}
+            <SliderImage logo={PARTNER_LOGOS[idx]} alt={`Logo ${idx + 1}`} width={itemWidth} />
+            {!isDesktop && <SliderImage logo={PARTNER_LOGOS[idx + 1]} alt={`Logo ${idx + 2}`} width={itemWidth} />}
           </div>
         </CarouselItem>
       ))}
