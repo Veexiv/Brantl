@@ -41,7 +41,7 @@ export function ProfileCard({
         className={cn("mb-11 h-auto min-w-[138px] xl:mb-0", className)}
       />
 
-      <div className={cn(SECTION_CLASSES, "mb-11 xl:mb-24 xl:gap-0")}>
+      <div className={cn(SECTION_CLASSES, "mb-11 gap-3 xl:mb-24")}>
         <p className="text-xl font-bold">{name}</p>
         <p className={SECTION_TITLE_CLASSES}>{role}</p>
       </div>
