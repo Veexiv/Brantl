@@ -59,12 +59,11 @@ export function NavbarMenuVertical({ className }: { className?: string }) {
         </Button>
       </SheetTrigger>
 
-      <SheetContent className="flex w-full flex-col justify-between gap-0 overflow-scroll bg-[url('/images/mobile/menu-bg-mobile.webp')] bg-cover bg-center p-0 text-inverse-foreground">
+      <SheetContent className="flex w-full flex-col gap-0 overflow-scroll bg-[url('/images/mobile/menu-bg-mobile.webp')] bg-cover bg-center p-0 text-inverse-foreground">
         <VisuallyHidden>
           <SheetTitle>Main Navigation</SheetTitle>
           <SheetDescription>Choose an option from the menu below.</SheetDescription>
         </VisuallyHidden>
-
         <SheetHeader>
           <div className="flex w-full justify-between border-b-2 border-inverse p-4">
             <Logo className="h-[40px] w-[95px] shrink-0 fill-secondary-foreground" />
@@ -82,7 +81,7 @@ export function NavbarMenuVertical({ className }: { className?: string }) {
           </div>
         </SheetHeader>
 
-        <nav className="flex flex-1 flex-grow flex-col justify-center gap-4 p-8">
+        <nav className="flex flex-[3] flex-col justify-end gap-4 px-8">
           {navLinks.map((navLink) => (
             <Button
               type="button"
@@ -102,9 +101,8 @@ export function NavbarMenuVertical({ className }: { className?: string }) {
           <LanguageSwitcher preserveMenuState buttonClassName="text-2.5xl" />
         </nav>
 
-        <SheetFooter className="flex flex-col items-center gap-4 px-12 pb-12 text-center">
+        <SheetFooter className="flex flex-[2] items-center justify-center px-8 text-center">
           <p>{t("navbar.sideMenu.footer")}</p>
-          <Vector width={24} height={10} className="fill-icon-inverse" />
         </SheetFooter>
       </SheetContent>
     </Sheet>
